@@ -1,5 +1,8 @@
 import sys
+
 sys.setrecursionlimit(50000)
+
+
 class Tree():
     def __init__(self, graph_dict=None):
         if graph_dict is None:
@@ -32,15 +35,9 @@ class Tree():
 
 
 def Height(tr, r):
-    global heights
     height = 1
     for child in tr.get_children(r):
-        if child not in heights:
-            height = max(height, 1 + Height(tr, child))
-            heights[child]=[]
-            heights[child].append(height)
-        else:
-            height = heights[child]
+        height = max(height, 1 + Height(tr, child))
     return height
 
 
