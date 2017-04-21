@@ -2,6 +2,7 @@ class Stack(list):
     """
     a simple Stack implementation
     """
+
     def __init__(self):
         self.data = []
 
@@ -22,31 +23,32 @@ def isBalanced(s: str):
     """
     
     :param s: string consists of any characters
-    :return: 'Success' if parentheses in s are balanced; 
-              else: index of a first right parenthesis without a pair if there is one;
-              otherwise: index of a first left parenthesis without a pair
+    :return: 'Success' if brackets in s are balanced; 
+              else: index of a first right bracket without a pair if there is one;
+              otherwise: index of a first left bracket without a pair
     
     """
-    l_parentheses = ['(', '[', '{']
-    r_parentheses = [')', ']', '}']
+    l_brackets = ['(', '[', '{']
+    r_brackets = [')', ']', '}']
     stack = Stack()
     i = 0
-    inds = [] #indices of left parentheses in s
+    inds = []  # indices of left brackets in s
     for c in s:
         i += 1
-        if c in l_parentheses:
+        if c in l_brackets:
             stack.push(c)
             inds += [i]
         else:
-            if c in r_parentheses:
-                if stack.is_empty(): return i
+            if c in r_brackets:
+                if stack.is_empty():
+                    return i
                 top = stack.pop()
                 if ((c == ')' and top != '(') or
                         (c == ']' and top != '[') or
                         (c == '}' and top != '{')):
                     return i
                 else:
-                    del inds[-1] # remove the index of the left parenthesis that just found a pair.
+                    del inds[-1]  # remove the index of the left brackets that just found a pair.
     if stack.is_empty():
         return 'Success'
     else:
