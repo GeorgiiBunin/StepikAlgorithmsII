@@ -10,7 +10,7 @@ class Stack(list):
         return not self.data
 
     def push(self, val):
-        return self.data.append(val)
+        self.data.append(val)
 
     def top(self):
         return self.data[-1]
@@ -21,7 +21,6 @@ class Stack(list):
 
 def isBalanced(s: str):
     """
-    
     :param s: string consists of any characters
     :return: 'Success' if brackets in s are balanced; 
               else: index of a first right bracket without a pair if there is one;
@@ -53,7 +52,6 @@ def isBalanced(s: str):
         return 'Success'
     else:
         return inds[0]
-
 
 s = input()
 print(isBalanced(s))
