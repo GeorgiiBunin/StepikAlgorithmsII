@@ -1,3 +1,16 @@
+"""
+from a list of integers and width of a window k get maximums in a sliding window
+
+Sample Input:
+8
+2 7 3 1 5 2 6 2
+4
+
+Sample Output:
+7 7 5 6 6
+
+"""
+
 class Stack(list):
     """
     Stack implementation with MAX option
